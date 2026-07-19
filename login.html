@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #36d1dc, #5b86e5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-container {
+        background: #fff;
+        padding: 25px;
+        width: 350px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #36d1dc;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #2bb3bd;
+    }
+
+    .error {
+        color: red;
+        font-size: 13px;
+    }
+
+    .success {
+        color: green;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .extra-links {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .extra-links a {
+        text-decoration: none;
+        color: #36d1dc;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <a href="index.html">Homepage</a>
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email">
+            <div class="error" id="emailError"></div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password">
+            <div class="error" id="passwordError"></div>
+        </div>
+
+        <button type="submit">Login</button>
+        
+        <p><a href="forgotpassword.html">Forgot Password</a></p>
+        <div class="success" id="successMessage"></div>
+
+        <div class="extra-links">
+            <p>Don't have an account? <a href="signup.html">Register</a></p>
+        </div>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let isValid = true;
+
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passwordError").innerText = "";
+    document.getElementById("successMessage").innerText = "";
+
+    if (email === "") {
+        document.getElementById("emailError").innerText = "Email is required";
+        isValid = false;
+    } else if (!email.includes("@")) {
+        document.getElementById("emailError").innerText = "Enter a valid email";
+        isValid = false;
+    }
+
+    if (password === "") {
+        document.getElementById("passwordError").innerText
+</script>
+</html>
